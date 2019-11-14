@@ -8,7 +8,10 @@ namespace Janken
 {
     public class Program
     {
-        public static string[] jankenAA = { "ぐー", "ちょき", "ぱー" };
+        public static string[] jankenAA ={"\nグー！　　 ＿_\n　　　　　/｣｣｣｣\n　　　　 ｜っ丿\n　 ∧_∧ / ／\n　( ･ω･)／\n　(つ　 ﾉ\n　 ｕ-ｕ"
+                , "\nチョキ！\n　　　　　(Ｖ)\n　　　　　/ｱE)\n　 ∧_∧ / ／\n　( ･ω･)／\n　(つ　 ﾉ\n　 ｕ-ｕ"
+                , "\nパー！\n　　　　　｢｢｢h\n　　　　 Ｃ　ﾉ\n　 ∧_∧ / ／\n　( ･ω･)／\n　(つ　 ﾉ\n　 ｕ-ｕ"
+        };
 
         public static void Main(string[] args)
         {
@@ -104,6 +107,7 @@ namespace Janken
             {
                 Console.Write("コンピューターは、");
             }
+
             Console.WriteLine(jankenAA[jank]);
         }
 
@@ -136,17 +140,17 @@ namespace Janken
 
             if ((player == 0 && cpu == 1) || (player == 1 && cpu == 2) || (player == 2 && cpu == 0))
             {
-                Console.WriteLine("プレイヤーが勝ち");
+                Console.WriteLine("【プレイヤーが勝ち】");
                 judge = 0;
             }
             else if ((cpu == 0 && player == 1) || (cpu == 1 && player == 2) || (cpu == 2 && player == 0))
             {
-                Console.WriteLine("CPUが勝ち");
+                Console.WriteLine("【CPUが勝ち】");
                 judge = 1;
             }
             else
             {
-                Console.WriteLine("あいこ");
+                Console.WriteLine("【あいこ】");
                 judge = 2;
             }
             judgeList.Add(judge);
