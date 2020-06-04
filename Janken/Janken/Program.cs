@@ -13,6 +13,16 @@ namespace Janken
                 , "\nパー！\n　　　　　｢｢｢h\n　　　　 Ｃ　ﾉ\n　 ∧_∧ / ／\n　( ･ω･)／\n　(つ　 ﾉ\n　 ｕ-ｕ"
         };
 
+        /// <summary>
+        /// ランダム関数
+        /// </summary>
+        public static Random rand = new Random();
+
+        /// <summary>
+        /// ジャッジリスト
+        /// </summary>
+        public static List<int> judgeList = new List<int>();
+
         public static void Main(string[] args)
         {
             Console.WriteLine("※説明：最初に何回じゃんけんをするか回数を入力する。\nその後、回数分の自分の出すじゃんけん数値を入れる。\nグー＝0、チョキ＝1、パー＝2");
@@ -112,11 +122,6 @@ namespace Janken
         }
 
         /// <summary>
-        /// ランダム関数
-        /// </summary>
-        public static Random rand = new Random();
-
-        /// <summary>
         /// CPUがランダムで出すじゃんけんの関数
         /// </summary>
         /// <returns>ランダムで出した数</returns>
@@ -131,8 +136,6 @@ namespace Janken
         /// </summary>
         /// <param name="player"></param>
         /// <param name="cpu"></param>
-        
-        public static List<int> judgeList = new List<int>();
 
         public static void Judge(int player, int cpu)
         {
@@ -156,12 +159,17 @@ namespace Janken
             judgeList.Add(judge);
             Console.Write("\n");
         }
+
+        /// <summary>
+        /// 勝敗判定ロジック
+        /// </summary>
+        /// <param name="jlist"></param>
         public static void Statistics(List<int> jlist)
         {
-            int playerWin = jlist.Where(j=>j==0).Count();
-            int cpuWin = jlist.Where(j=>j==1).Count();
+            int playerWin = jlist.Where(j => j == 0).Count();
+            int cpuWin = jlist.Where(j => j == 1).Count();
             int draw = jlist.Where(j => j == 2).Count();
-            Console.WriteLine(string.Format("プレイヤーの勝利数:{0}\nCPUの勝利数:{1}\nあいこ数:{2}", playerWin,cpuWin,draw));
+            Console.WriteLine(string.Format("プレイヤーの勝利数:{0}\nCPUの勝利数:{1}\nあいこ数:{2}", playerWin, cpuWin, draw));
         }
     }
 }
